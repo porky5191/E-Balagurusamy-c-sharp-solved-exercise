@@ -1,0 +1,406 @@
+|6.1|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i=0; i<=20; i++){
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+
+---------------------------------------------------------------------------------
+|6.2|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            for (int i=0; i<=20; i++){
+                Console.Write(i+" ");
+                sum += i % 2 == 0 ? i : 0;
+            }
+            Console.WriteLine();
+            Console.WriteLine("sum of all the even number between 0 and 20 is "+sum);
+        }
+    }
+}
+
+----------------------------------------------------------------------------
+|6.3|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0, count = 0;
+            for (int i=100; i<=200; i++){
+                if (i%7 == 0)
+                {
+                    count++;
+                    sum += i;
+                }
+            }
+            Console.WriteLine("count of all the number between 100 and 200 and divisible by 7 is: " + count);
+            Console.WriteLine("sum of all the number between 100 and 200 and divisible by 7 is: "+sum);
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------
+|6.4|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Insert a: ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Insert b: ");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Insert c: ");
+            int c = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Insert d: ");
+            int d = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Insert m: ");
+            int m = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Insert n: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            if (a * d - c* b == 0)
+            {
+                Console.WriteLine("The value of x1 and x2 is infinity");
+            }
+            else
+            {
+                double x1 = (m * d + b * n)/(a * d - c * d);
+                double x2 = (n * a + m * c) / (a * d - c * d);
+
+                Console.WriteLine("value of x1 is: "+x1+"\n and value of x2 is: "+x2);
+            }
+        }
+    }
+}
+
+----------------------------------------------------------------------------------
+|6.5|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] arr = { 11, 34, 46, 57, 68, 67, 78, 81, 90, 95};
+            int c40=0, c60=0, c80=0, c100=0;
+            foreach (int i in arr)
+            {
+                if (i >= 0 && i <= 40) c40++;
+                else if (i > 40 && i <= 60) c60++;
+                else if (i > 60 && i <= 80) c80++;
+                else c100++;
+            }
+
+            Console.WriteLine("Total students having marks between 0-40 is: " + c40);
+            Console.WriteLine("Total students having marks between 41-60 is: " + c60);
+            Console.WriteLine("Total students having marks between 61-80 is: " + c80);
+            Console.WriteLine("Total students having marks between 81-100 is: " + c100);
+        }
+    }
+}
+
+--------------------------------------------------------------------
+|6.6|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter marks of Maths: ");
+            int m = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter marks of Physics: ");
+            int p = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter marks of Chemistry: ");
+            int c = Convert.ToInt32(Console.ReadLine());
+
+            if (m + p >= 150)
+            {
+                Console.WriteLine("Congratulation you are eligible for admission");
+            }
+            else if (m >= 60 && p>=50 && c>=40 && m + p + c >= 200)
+            {
+                Console.WriteLine("Congratulation you are eligible for admission");
+            }
+            else
+            {
+                Console.WriteLine("Sorry you are not eligible for admission");
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------
+|6.7|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (double i=0; i<10; i++)
+            {
+                Console.Write(i + "   ");
+                for (double j=0; j<1;)
+                {
+                    Console.Write(round(Math.Sqrt((i + j)))  + "  ");
+                    j = j + 0.1;
+                }
+                Console.WriteLine();
+            }
+        }
+
+        //Convert any double number into 2 precision value
+        static double round(double no)
+        {
+            no = Math.Round(no* 100);
+            return no / 100;
+        }
+    }
+}
+
+------------------------------------------------------------------------------
+|6.8|
+
+[a]..
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Program prog = new Program();
+            int step = 1, i=0;
+            while(i+1 <= 91)
+            {
+                int j = i + step;
+                prog.print(i, j);
+                i = j;
+                step += 1;
+                Console.WriteLine();
+            }
+        }
+
+        public void print(int lower, int upper)
+        {
+            for (int i=lower + 1; i<= upper; i++)
+            {
+                Console.Write(i+" ");
+            }
+        }
+    }
+}
+
+
+[b]..
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the total steps of the pyramid: ");
+            int step = Convert.ToInt32(Console.ReadLine());
+
+            Program prog = new Program();
+            for (int i=1; i<=step; i++)
+            {
+                prog.print(i);
+            }
+        }
+
+        public void print(int step)
+        {
+            String str = "";
+            if (step % 2 == 0)
+            {
+                for (int i = 0; i < step; i++)
+                {
+                    str += i % 2 == 0 ? 0 : 1;
+                }
+            }
+            else
+            {
+                for (int i = 1; i <= step; i++)
+                {
+                    str += i % 2 == 0 ? 0 : 1;
+                }
+            }
+            Console.WriteLine(str);
+        }
+    }
+}
+
+
+
+------------------------------------------------------------------------------
+|6.9|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the mill amount
+            Console.Write("Total amount spent on Mill Cloths: ");
+            double mill = Convert.ToDouble(Console.ReadLine());
+            //Read the handloom amount
+            Console.Write("Total amount spent on Handloom Cloths: "); double handloom = Convert.ToDouble(Console.ReadLine());
+            //Initialize local variable
+            double millDiscount = 0, handloomDiscount = 0;
+            //Initialize object of current class
+            Program prog = new Program();
+            //calculate discount percentage for mill
+            if (mill >= 0 && mill <= 100)
+            {
+                millDiscount = 0;
+            }
+            else if (mill > 100 && mill <= 200)
+            {
+                millDiscount = 5;
+            }
+            else if (mill > 200 && mill <= 300)
+            {
+                millDiscount = 7.5;
+            }
+            else
+            {
+                millDiscount = 10;
+            }
+            //calculate discount percentage for handloom
+            if (handloom >= 0 && handloom <= 100)
+            {
+                handloomDiscount = 5;
+            }
+            else if (handloom > 100 && handloom <= 200)
+            {
+                handloomDiscount = 7.5;
+            }
+            else if (handloom > 200 && handloom <= 300)
+            {
+                handloomDiscount = 10;
+            }
+            else
+            {
+                handloomDiscount = 15;
+            }
+            //total payable amount
+            double amount = Convert.ToDouble(
+            prog.calculate(mill, millDiscount) +
+            prog.calculate(handloom, handloomDiscount));
+            //print output
+            Console.WriteLine();
+            Console.WriteLine("Total Cost: {0}", mill + handloom);
+            Console.WriteLine("Mill discount: {0}%, Handloom discount: {1}%",
+            millDiscount, handloomDiscount);
+            Console.WriteLine("Total Payable amount: {0}", amount);
+            Console.WriteLine();
+        }
+	//calculate payable amount
+    public double calculate(double total_amount, double discount)
+    {
+        return (total_amount - (discount / 100) * total_amount);
+    }
+}
+}
+
+----------------------------------------------------------------------------------
+|6.10|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter x: ");
+            double x = Convert.ToDouble(Console.ReadLine());
+
+            //using else if
+            /*
+            if (x > 0)
+            {
+                Console.WriteLine("y = " + 1);
+            } 
+            else if (x == 0)
+            {
+                Console.WriteLine("y = " + 0);
+            }
+            else
+            {
+                Console.WriteLine("y = " + -1);
+            }
+            */
+
+            //using conditional statement
+            /*
+            double y = x>0 ? 1: x<0 ? -1 : 0;
+            Console.WriteLine("y=" + y);
+            */
+
+            //using nested if
+            /*
+            if (x == 0)
+            {
+                Console.WriteLine("y = " + 0);
+            }
+            else
+            {
+                if(x > 0)
+                {
+                    Console.WriteLine("y = " + 1);
+                }
+                else
+                {
+                    Console.WriteLine("y = " + -1);
+                }
+            }
+            */
+
+        }
+    }
+}
