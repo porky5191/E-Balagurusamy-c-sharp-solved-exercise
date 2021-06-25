@@ -1,0 +1,155 @@
+|3.1|
+
+using System;
+
+namespace Practice1
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			//Taking the inputs
+			Console.Write("Enter the first string: ");
+			String s = Console.ReadLine();
+			Console.Write("Enter the second string: ");
+			String s2 = Console.ReadLine();
+
+			//Write the strings
+			Console.Write(s + " ");
+			Console.WriteLine(s2);
+
+		}
+	}
+}
+
+------------------------------------------------------------------------------------
+|3.2|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Enter the String");
+			String s = Console.ReadLine();
+			String[] arr = s.Split();
+
+			Console.WriteLine("{0} {1} {2}", arr[2], arr[0], arr[1]);
+
+		}
+	}
+}
+
+---------------------------------------------------------------------------------------
+|3.3|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new String1().print();
+            Console.Write(" ");
+            new String2().print();
+        }
+    }
+    class String1
+    {
+        public void print()
+        {
+            Console.Write("C Sharp");
+        }
+    }
+    class String2
+    {
+        public void print()
+        {
+            Console.WriteLine("Programming");
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------
+|3.4|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double first = 30.2415;
+            double second = 45.4325;
+
+            Console.WriteLine("Sum of {0} & {1} is: {2}", first, second, first+second);
+
+            /*
+             double sum = first + second;
+             Console.WriteLine("Sum of {0} & {1} is {2}", first, second, sum);
+             */
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------
+|3.5|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Enter the height");
+			int h = Convert.ToInt32(Console.ReadLine());
+			int length = h + (h - 1);
+
+			for (int i=0; i<h; i++)
+            {
+				String s;
+				if (i == h - 1)
+                {
+					s = String.Concat(Enumerable.Repeat("* ", i + 1));
+					Console.WriteLine("{0}", s);
+				}
+                else
+                {
+					s = String.Concat(Enumerable.Repeat("* ", i + 1));
+					String str = String.Concat(Enumerable.Repeat(" ", (length-s.Length-1)/2 ));
+					Console.WriteLine(" {0}{1}", str, s);
+				}
+				
+            }
+
+			
+			for (int i = h-1; i >=0; i--)
+			{
+				String s;
+				if (i == h - 1)
+				{
+					s = String.Concat(Enumerable.Repeat("* ", i + 1));
+				}
+				else
+				{
+					s = String.Concat(Enumerable.Repeat("* ", i + 1));
+					String str = String.Concat(Enumerable.Repeat(" ", (length - s.Length - 1) / 2));
+					Console.WriteLine(" {0}{1}", str, s);
+				}
+
+			}
+			
+
+		}
+	}
+}
