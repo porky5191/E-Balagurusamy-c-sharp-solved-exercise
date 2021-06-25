@@ -1,0 +1,274 @@
+|5.1|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = Convert.ToInt32(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Sum of {0} and {1} is: {2}", a, b, a + b);
+            Console.WriteLine("Product of {0} and {1} is: {2}", a, b, a * b);
+            Console.WriteLine("Difference of {0} and {1} is: {2}", a, b, a - b);
+            Console.WriteLine("Modulus division of {0} and {1} is: {2}", a, b, a % b);
+            Console.WriteLine("Integer division of {0} and {1} is: {2}", a, b, Math.Floor((decimal)a / b));
+        }
+    }
+}
+
+----------------------------------------------------------------------------------
+|5.2|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a = (float) Convert.ToDouble(Console.ReadLine());
+            float b = (float) double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Sum of {0} and {1} is: {2}", a, b, a + b);
+            Console.WriteLine("Product of {0} and {1} is: {2}", a, b, a * b);
+            Console.WriteLine("Difference of {0} and {1} is: {2}", a, b, a - b);
+            Console.WriteLine("Modulus division of {0} and {1} is: {2}", a, b, a % b);
+            
+        }
+    }
+}
+
+---------------------------------------------------------------------------------
+|5.3|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Average of 25, 75 & 100 is: {0}", (25 + 75 + 100)/3);
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------
+|5.4|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double rad = 12.5;
+            const double pi = 3.14;//value of pi is always fixed. Instead of this we can also use Math.Pi
+
+            Console.WriteLine("Area of a circle with radious {0} is : {1}", rad, pi * rad * rad);
+            Console.WriteLine("Circumference of a circle with radious {0} is: {1}", rad, 2 * pi * rad);
+        }
+    }
+}
+
+---------------------------------------------------------------------------------
+|5.6|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the price of the item in decimal: ");
+            double price = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Price of the item in paise is: {0}", price * 100);
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------
+|5.7|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the temperature in Farenheit: ");
+            double f = Convert.ToDouble(Console.ReadLine());
+            double c = (f - 32) / 1.8;
+            Console.WriteLine("| Farenheit | Calsius |");
+            Console.WriteLine("|  {0}  |  {1}  |", f, c);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+|5.8|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the purchase price: ");
+            double p = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter year of service: ");
+            int y = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter depreciation: ");
+            double d = Convert.ToDouble(Console.ReadLine());
+
+            double salvage = p - (d * y);
+            Console.WriteLine("Salvage value of the item is: "+ salvage);
+        }
+    }
+}
+
+-----------------------------------------------------------------------------
+|5.9|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a real number: ");
+            double no = Convert.ToDouble(Console.ReadLine());
+            
+            Console.WriteLine("Smallest integer not less than {0} => {1}", no, Math.Ceiling(no));
+            Console.WriteLine("Largest integer not greater than {0} => {1}", no, Math.Floor(no));
+        }
+    }
+}
+
+-----------------------------------------------------------------------------
+|5.10|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter t1 (initial time) in sec: ");
+            int t1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter t2 (final time) in sec: ");
+            int t2 = Convert.ToInt32(Console.ReadLine());
+
+            int stat = 1;
+            do
+            {
+                Console.Write("Enter u (initial velocity) in m/sec: ");
+                double u = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter a (acceleration) in m/sec2: ");
+                double a = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Distance travelled in {0} sec is: {1} meter", t2-t1, distance(t2, u, a) - distance(t1, u, a));
+
+                Console.WriteLine("----------------------------------------------");
+                Console.Write("0:exit 1:Continue: ");
+                stat = Convert.ToInt32(Console.ReadLine());
+            } while (stat == 1);
+   
+        }
+        public static double distance(int t, double u, double a)
+        {
+            return (u * t) + (a * t * t) / 2;
+        }
+    }
+}
+
+-------------------------------------------------------------------------------
+|5.11|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter demand rate (items per unit time): ");
+            int d = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter setup cost (per order): ");
+            double s = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter holding cost (per item per unit time): ");
+            double h = Convert.ToDouble(Console.ReadLine());
+
+            double EOQ = Math.Sqrt((2 * d * s)/(h));
+            double TBO = Math.Sqrt((2 * s)/(d * h));
+
+            Console.WriteLine("Economic order quantity for a single item is : " + EOQ);
+            Console.WriteLine("Optimal time between items is : " + TBO);
+        }
+    }
+}
+
+------------------------------------------------------------------------------
+|5.12|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter Inductance: ");
+            double L = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter Registance: ");
+            double R = Convert.ToDouble(Console.ReadLine());
+
+            Program prog = new Program();
+            for (double i=0.01; i<=0.1;)
+            {
+                Console.WriteLine("Frequency at Conductance={0} is {1}", i, prog.frequency(L, R, i));
+                i += 0.01;
+            }
+        }
+
+        public String frequency(double L, double R, double C)
+        {
+            double first = 1 / (L * C);
+            double second = (R * R) / (4 * C * C);
+            double diff = first - second;
+
+            //In order to handle negative sqrt i used a simple hack
+            return diff<0 ? Math.Sqrt(-diff)+"i" : Math.Sqrt(diff)+"";
+        }
+    }
+}
+
+
