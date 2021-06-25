@@ -1,0 +1,207 @@
+|4.1|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Declaring the variables
+            char c;
+            short sh;
+            int i;
+            long l;
+            Boolean b;
+            float f;
+            double d;
+
+
+            //Initializing the variables
+            c = 'A';
+            sh = 50;
+            i = 123456789;
+            l = 1234567654321;
+            b = true;
+            f = 0.000000345f;
+            d = 1.23e5;
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+|4.2|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Question a
+            float x, y;
+
+            //Question b
+            int m;
+
+            //Question c
+            x = 75.86f;
+            y = 43.48f;
+
+            //Question d
+            m = Convert.ToInt32(x + y);
+
+            //Question e
+            Console.WriteLine(m);
+        }
+    }
+}
+
+----------------------------------------------------------------------------------
+|4.4|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Boxing: assigning any value type to object type
+            Object obj;
+            obj = 100;
+
+            //Unboxing: assigning any object type to value type
+            int a;
+            a = (int)obj;
+        }
+    }
+}
+
+------------------------------------------------------------------------------------
+|4.5|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            byte b1, b2, b3;
+            b1 = 100;
+            b2 = 200;
+
+            b3 = (byte) (b1 + b2);
+
+            Console.WriteLine("sum of {0} & {1} is: {2}",b1, b2, b3);//byte can't accomodate 300
+
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------
+|4.6|
+
+using System;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello,\"RAM\"!");
+            Console.WriteLine("*\n**\n***\n****\n");
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------
+|4.7|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the length");
+            int length = Convert.ToInt32(Console.ReadLine());
+            String top = "", bottom = "", middle = " " + String.Concat(Enumerable.Repeat("-", length * 2)) + "\n";
+
+            for (int i=0; i< length; i++)
+            {
+                top += String.Concat(Enumerable.Repeat(" ", length-i)) + "/" + String.Concat(Enumerable.Repeat(" ", i*2)) + "\\" + "\n";
+                bottom += "\"\"" + String.Concat(Enumerable.Repeat(" ", length*2-2)) + "\"\"" + "\n";
+            }
+            Console.WriteLine("{0}{1}{2}", top, middle, bottom);
+            
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------
+|4.8|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int m = 100;
+            long n = 200;
+            long l = m + n;
+
+            Console.WriteLine("l=" + l); //It gives output 'l=300'
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------
+|4.9|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double zero = 0;
+            Console.WriteLine("The result of division by zero in c# is : {0}", (0/zero)); //gives out 'NaN'
+        }
+    }
+}
+
+---------------------------------------------------------------------------------------------
+|4.10|
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine("Integer Literal {0}", 58);
+            System.Console.WriteLine("Double Literal {0}", 1.6180339887498);
+            System.Console.WriteLine("Decimal Literal {0}", 1.618033988734565m);
+            System.Console.WriteLine("Exponential Notation for Decimal Literal {0}", 6.023E23f);
+            System.Console.WriteLine("Hexadecimal Literal {0}", 0x003A);
+        }
+    }
+}
