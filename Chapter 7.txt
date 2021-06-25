@@ -1,0 +1,316 @@
+|7.1|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the number to reverse: ");
+            long no = Convert.ToInt64(Console.ReadLine());
+            //Initialize a local variable
+            long newNo = 0;
+            while (no > 0)
+            {
+                newNo = newNo * 10 + (no % 10);
+                no /= 10;
+            }
+            //print output
+            Console.WriteLine("Reversed number is: {0}", newNo);
+            Console.WriteLine();
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------
+|7.2|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the number: ");
+            int no = Convert.ToInt32(Console.ReadLine());
+
+            for (int i=no -1; i>0; i--)
+            {
+                no *= i;
+            }
+            Console.WriteLine("Factorial is: " + no);
+            Console.WriteLine();
+        }
+    }
+}
+
+---------------------------------------------------------------------------------
+|7.3|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the number: ");
+            int no = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+            while(no != 0)
+            {
+                sum += no % 10;
+                no /= 10;
+            }
+            Console.WriteLine("sum of all the digits is: "+sum);
+            Console.WriteLine();
+        }
+    }
+}
+
+---------------------------------------------------------------------------------
+|7.4|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter upto which step to print the fibonaci series: ");
+            int no = Convert.ToInt32(Console.ReadLine());
+            
+            int first=1, second = 1, sum = 0;
+            Console.Write(first + " " + second + " ");
+            for (int i=0; i<no-2; i++)
+            {
+                sum = first + second;
+                Console.Write(sum +" ");
+                first = second;
+                second = sum;
+            }
+            Console.WriteLine("\n\n");
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+|7.5|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter the Principal Amount: ");
+            double p = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the rate of interest: ");
+            double r = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter no of year: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            while (n > 0)
+            {
+                double v = p * (1 + r);
+                p = v;
+                n--;
+            }
+            Console.WriteLine("Value of money is: {0}\n", p);
+        }
+    }
+}
+
+-------------------------------------------------------------------------
+|7.6|
+
+[a]..
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter total steps of pyramid: ");
+            int step = Convert.ToInt32(Console.ReadLine());
+            
+            for (int i=1; i<=step; i++)
+            {
+                Console.WriteLine(String.Concat(Enumerable.Repeat(i+" ", i)));
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+
+
+[b]..
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter total steps of pyramid: ");
+            int step = Convert.ToInt32(Console.ReadLine());
+            
+            for (int i=step; i>0; i--)
+            {
+                Console.WriteLine(String.Concat(Enumerable.Repeat("$ ", i)));
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+
+
+[c]..
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter total steps of pyramid: ");
+            int step = Convert.ToInt32(Console.ReadLine());
+            
+            for (int i=1; i<=step; i++)
+            {
+                Console.WriteLine(String.Concat(Enumerable.Repeat(" ", step-i)) + String.Concat(Enumerable.Repeat(i+" ", i)) + 
+                    String.Concat(Enumerable.Repeat(" ", step - i)));
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+
+
+------------------------------------------------------------------------------------------------
+|7.7|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Convertion formula used is: 74.17\n");
+            const double conversion = 74.17;
+
+            Console.WriteLine("Enter US dollar: ");
+            for (int i=1; i<=5; i++)
+            {
+                double dollar = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("value of USD {0} in Rupees is: {1}", dollar, dollar * conversion);
+
+            }
+            Console.WriteLine("\n");
+        }
+    }
+}
+
+---------------------------------------------------------------------------------------
+|7.8|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Convertion formula used is: 74.17\n");
+            const double conversion = 74.17;
+
+            Console.WriteLine("Enter US dollar: ");
+            int i = 0;
+            do
+            {
+                double dollar = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("value of USD {0} in Rupees is: {1}", dollar, dollar * conversion);
+                i++;
+            } while (i<4);            
+            Console.WriteLine("\n");
+        }
+    }
+}
+
+----------------------------------------------------------------------------------
+|7.9|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, 3, 5, 7, 8, 4, 9, 33, 6, 22 };
+
+            foreach (int i in arr) Console.WriteLine(i);
+        }
+    }
+}
+
+-------------------------------------------------------------------------------
+|7.10|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("ENter any integer number");
+            int no = Convert.ToInt32(Console.ReadLine());
+
+            switch (no)
+            {
+                case 15:
+                    break;
+                case 14:
+                    goto case 15 ;
+                default:
+                    for (int i=0; i<no; i++)
+                    {
+                        if (i > 10) continue;
+                        else Console.Write(i+" ");
+                    }
+                    Console.WriteLine();
+                    break;
+            }
+        }
+    }
+}
