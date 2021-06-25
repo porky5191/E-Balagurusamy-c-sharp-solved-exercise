@@ -3,4 +3,4 @@ I tried to solve each & every questions of all the exercise of **Programming in 
 
 If your code is more efficient then your contribution is always welcome.
 
-<img src="images/book_cover.jpeg" width="100">
+<img src="book_cover.jpeg" width="100">
