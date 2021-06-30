@@ -1,0 +1,458 @@
+|8.1|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(String.Concat(Enumerable.Repeat("*", 20)));
+        }
+    }
+}
+
+---------------------------------------------------------------------------------------
+|8.2|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(String.Concat(Enumerable.Repeat("*", 20)));
+            Console.WriteLine(String.Concat(Enumerable.Repeat(" ", 3)) + "C# Programming" + String.Concat(Enumerable.Repeat(" ", 3)) );
+            Console.WriteLine(String.Concat(Enumerable.Repeat("*", 20)));
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------
+|8.3|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            new Program().calculate(1000, 0.2, 5);//passing values
+        }
+
+        public void calculate(double principal, double interest, int period)
+        {
+            Console.WriteLine("Principal amount: {0}\nInterest rate: {1}\nPeriod in year: {2}", principal, interest, period);
+            while(period != 0)
+            {
+                principal = principal * (1 + interest);
+                period--;
+            }
+            Console.WriteLine("Final value: " + principal);
+        }
+    }
+}
+
+------------------------------------------------------------------------------
+|8.4|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double principal = 1000;
+            double interest = 0.5;
+            int period = 5;
+            Console.WriteLine("Principal amount: {0}\nInterest rate: {1}\nPeriod in year: {2}", principal, interest, period);
+            Console.WriteLine("Final value: " + new Program().calculate(principal, interest, period));
+        }
+
+        public double calculate(double principal, double interest, int period)
+        {
+            while(period != 0)
+            {
+                principal = principal * (1 + interest);
+                period--;
+            }
+            return principal;
+        }
+    }
+}
+
+--------------------------------------------------------------------------------
+|8.5|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char[] c = new char[3];
+            int[] l = new int[3];
+            Program prog = new Program();
+            for (int i=0; i<3; i++)
+            {
+                Console.WriteLine("Enter a character: ");
+                c[i] = Convert.ToChar(Console.ReadLine());
+                Console.WriteLine("Enter a length of {0}: ", c[i]);
+                l[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = 0; i < 3; i++) prog.PrintLine(c[i], l[i]);
+        }
+
+        public void PrintLine(char c, int length)
+        {
+            Console.WriteLine(String.Concat(Enumerable.Repeat(c, length)));
+        }
+    }
+}
+
+-----------------------------------------------------------------------------
+|8.6|
+
+using System;
+using System.Linq;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            int[] arr = { 22, 5, 7, 9, 1, 6, 2 };
+            Console.WriteLine("Standard deviation of the array is {0}\n\n", new Program().Std(arr));
+
+        }
+
+        private double Std(int[] arr)
+        {
+            double mean = new Program().Mean(arr);
+            double sum = 0;
+            foreach (int i in arr)
+            {
+                sum += (i - mean) * (i - mean);
+            }
+            return Math.Sqrt(sum / arr.Length);
+        }
+
+        private double Mean(int[] arr)
+        {
+            return arr.Sum() / arr.Length;
+        }
+    }
+}
+
+-----------------------------------------------------------------------------
+|8.7|
+
+using System;
+using System.Linq;
+using System.Collections;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, 4, 8, 4, 9, 2, 5 };
+            Program prog = new Program();
+            foreach (int a in prog.sort(arr)) Console.Write(a + " ");
+            Console.WriteLine("\n\n");
+        }
+
+        public int[] sort(int[] arr)
+        {
+            Array.Sort(arr);
+            return arr;
+        }
+    }
+}
+
+------------------------------------------------------------------------------------
+|8.8|
+
+using System;
+using System.Linq;
+
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the first number: ");
+            int first = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the first number: ");
+            int second = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the number of space: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            
+            //print output
+            Console.WriteLine("After inserting {0} spaces output becomes: {1}\n\n",
+            n, new Program().space(first, second, n));
+        }
+        public String space(int first_element, int second_element, int n)
+        {
+            /*
+             * We can also do in the following way
+            String s = "";
+            for (int i = 0; i < n; i++)
+            {
+                s = s + " ";
+            }
+            */
+            return first_element + String.Concat(Enumerable.Repeat(" ", n)) + second_element;
+        }
+    }
+}
+
+------------------------------------------------------------------------------------
+|8.9|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the number: ");
+            double number = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Round up the number upto decimal place: ");
+            int decimals = Convert.ToInt32(Console.ReadLine());
+            //print output
+            Console.WriteLine("Rounded number is: {0}",
+            new Program().roundUp(number, decimals));
+            Console.WriteLine();
+        }
+        public double roundUp(double number, int decimalPlace)
+        {
+            double multiplier = Math.Pow(10, Convert.ToDouble(decimalPlace));
+            return Convert.ToInt32(number * multiplier) / multiplier;
+        }
+    }
+}
+
+-------------------------------------------------------------------------------
+|8.10|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            
+            //print output
+            Console.WriteLine("The number is : {0}\n", new Program().Prime(number).Equals(true) ? "Prime" : "Not Prime");
+            Console.WriteLine();
+        }
+        public Boolean Prime(int number)
+        {
+            Boolean prime = true;
+            
+            if (number <= 3) return prime;
+            else
+            {
+                for (int i = 2; i < number; i++)
+                {
+                    if (number % i == 0)
+                    {
+                        prime = false;
+                        break;
+                    }
+                }
+            }
+            
+            return prime;
+        }
+    }
+}
+
+------------------------------------------------------------------------------
+|8.11|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the fist integer: ");
+            int first = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the second integer: ");
+            int second = Convert.ToInt32(Console.ReadLine());
+            int product;
+            //Call method to multipy
+            new Program().multiply(first, second, out product);
+            //print output
+            Console.WriteLine("Product of both number is: {0}", product);
+            Console.WriteLine();
+        }
+        public void multiply(int first, int second, out int product)
+        {
+            product = first * second;
+        }
+    }
+}
+
+------------------------------------------------------------------------------------
+|8.12|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the fist integer: ");
+            int first = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the second integer: ");
+            int second = Convert.ToInt32(Console.ReadLine());
+            int product = -1;
+
+            //Call method to multipy
+            new Program().multiply(ref first, ref second, ref product);
+            //print output
+            Console.WriteLine("Product of both number is: {0}\n\n", product);
+        }
+        public void multiply(ref int first, ref int second, ref int product)
+        {
+            product = first * second;
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------
+|8.13|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the fist integer: ");
+            double first = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the second integer: ");
+            double second = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the third integer: ");
+            double third = Convert.ToDouble(Console.ReadLine());
+            //Call method to multipy
+            double largestNo = new Program().largest(first, second, third);
+            //print output
+            Console.WriteLine("Largest number is: {0}", largestNo);
+            Console.WriteLine();
+        }
+        public double largest(double first, double second, double third)
+        {
+            double largest = first > second ? first > third ? first : third :
+            second > third ? second : third;
+            return largest;
+        }
+    }
+}
+
+---------------------------------------------------------------------------------
+|8.14|
+
+using System;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the fist integer: ");
+            double first = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the second integer: ");
+            double second = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the third integer: ");
+            double third = Convert.ToDouble(Console.ReadLine());
+            //Call method to multipy
+            double largestNo = new Program().Smallest(first, second, third);
+            //print output
+            Console.WriteLine("Smallest number is: {0}", largestNo);
+            Console.WriteLine();
+        }
+        public double Smallest(double first, double second, double third)
+        {
+            double largest = first < second ? first < third ? first : third : second < third ? second : third;
+            return largest;
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------
+|8.15|
+
+using System;
+using System.Linq;
+namespace Practice1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the number
+            Console.Write("Enter the size of the array: ");
+            int n = Convert.ToInt16(Console.ReadLine());
+            int[] arr = new int[n];
+            Console.WriteLine("Enter the integer array elements: ");
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            //Initialize the object
+            Program prog = new Program();
+            //Call methods
+            prog.largest(arr, n);
+            prog.average(arr, n);
+        }
+        public void largest(int[] arr, int size)
+        {
+            int output = arr[0];
+            foreach (int i in arr)
+            {
+                output = output > i ? output : i;
+            }
+            Console.WriteLine("\nLargest number in the array is: {0}", output);
+        }
+        public void average(int[] arr, int size)
+        {
+            double avg = (double)arr.Sum() / (double)size;
+            Console.WriteLine("Average of the array is: {0}\n\n", avg);
+        }
+    }
+}
